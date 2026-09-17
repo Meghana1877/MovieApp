@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Hunter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Header -->
+        <header class="app-header">
+            <div>
+                <h1>🎬 Movie Hunter</h1>
+                <p>Discover, manage and explore your favorite movies</p>
+            </div>
+        </header>
+
+
+        <!-- Add Movie Section -->
+        <div class="section-header">
+            <h2>Add a Movie</h2>
+            <p>Enter the movie details below</p>
+        </div>
+
+        <div class="form-container">
+
+            <input
+                type="text"
+                id="movieId"
+                placeholder="Movie ID"
+                required
+            >
+
+            <input
+                type="text"
+                id="title"
+                placeholder="Movie Title"
+                required
+            >
+
+            <input
+                type="text"
+                id="genre"
+                placeholder="Genre"
+                required
+            >
+
+            <input
+                type="number"
+                id="year"
+                placeholder="Year"
+                required
+                min="1900"
+                max="2100"
+            >
+
+            <input
+                type="text"
+                id="director"
+                placeholder="Director"
+                required
+            >
+
+            <input
+                type="file"
+                id="poster"
+                accept="image/*"
+            >
+
+            <button onclick="addMovie()">
+                Add Movie
+            </button>
+
+        </div>
+
+
+        <!-- Search -->
+        <div class="search-container">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search movies by title..."
+            >
+
+            <button onclick="searchMovies()">
+                Search
+            </button>
+
+            <button onclick="getMovies()">
+                Show All
+            </button>
+
+        </div>
+
+
+        <!-- Movies -->
+        <div class="movies-header">
+            <h2>🎞️ Movies</h2>
+        </div>
+
+        <div id="movieList"></div>
+
+    </div>
+       <!-- Review Modal -->
+    <div id="reviewModal" class="review-modal">
+
+        <div class="review-modal-content">
+
+            <button class="close-review" onclick="closeReviews()">
+                ✕
+            </button>
+
+            <h2>⭐ Movie Reviews</h2>
+
+            <div id="reviewList"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Add Review Modal -->
+    <div id="addReviewModal" class="review-modal">
+
+        <div class="review-modal-content">
+
+            <button class="close-review" onclick="closeAddReview()">
+                ✕
+            </button>
+
+            <h2>⭐ Add a Review</h2>
+
+            <input
+                type="text"
+                id="reviewer"
+                placeholder="Your Name"
+            >
+
+            <input
+                type="number"
+                id="reviewRating"
+                placeholder="Rating (1-5)"
+                min="1"
+                max="5"
+            >
+
+            <textarea
+                id="reviewComment"
+                placeholder="Write your review..."
+                rows="5"
+            ></textarea>
+
+            <button class="submit-review" onclick="submitReview()">
+                Submit Review
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

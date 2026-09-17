@@ -1,0 +1,406 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f6f7fb;
+    color: #222;
+}
+
+.container {
+    width: 92%;
+    max-width: 1150px;
+    margin: 35px auto;
+}
+
+/* Header */
+
+.app-header {
+    background: white;
+    padding: 28px 32px;
+    border-radius: 16px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+.app-header h1 {
+    font-size: 38px;
+    margin-bottom: 8px;
+}
+
+.app-header p {
+    color: #777;
+    font-size: 16px;
+}
+
+/* Search */
+
+.search-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.search-container input {
+    flex: 1;
+    padding: 14px 18px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    background: white;
+}
+
+.search-container input:focus {
+    outline: none;
+    border-color: #777;
+}
+
+.search-container button {
+    padding: 14px 22px;
+    border: none;
+    border-radius: 10px;
+    background: #222;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.search-container button:hover {
+    background: #444;
+}
+
+/* Add Movie Form */
+
+.form-container {
+    background: white;
+    padding: 28px;
+    border-radius: 16px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+
+    margin-bottom: 40px;
+}
+
+.form-container input {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #ddd;
+    border-radius: 9px;
+    font-size: 15px;
+    background: #fafafa;
+}
+
+.form-container input:focus {
+    outline: none;
+    border-color: #777;
+    background: white;
+}
+
+.form-container button {
+    grid-column: span 2;
+
+    padding: 14px;
+    border: none;
+    border-radius: 9px;
+
+    background: #222;
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background: #444;
+}
+
+/* Section heading */
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* Movie Grid */
+
+#movieList {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+/* Movie Card */
+
+.movie-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Poster */
+
+.movie-poster {
+    width: 100%;
+    height: 300px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+/* Movie Information */
+
+.movie-card h3 {
+    font-size: 22px;
+    margin: 18px 18px 12px;
+}
+
+.movie-card p {
+    margin: 7px 18px;
+    color: #666;
+    font-size: 14px;
+}
+
+.movie-card p b {
+    color: #222;
+}
+
+/* Buttons */
+
+.movie-card button {
+    margin-top: 14px;
+    margin-bottom: 18px;
+
+    padding: 9px 15px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: #222;
+    color: white;
+
+    cursor: pointer;
+}
+
+.movie-card button:first-of-type {
+    margin-left: 18px;
+}
+
+.movie-card button:hover {
+    background: #555;
+}
+
+/* Mobile */
+
+@media (max-width: 850px) {
+
+    #movieList {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+
+    .container {
+        width: 94%;
+        margin: 20px auto;
+    }
+
+    .app-header h1 {
+        font-size: 30px;
+    }
+
+    .search-container {
+        flex-direction: column;
+    }
+
+    .form-container {
+        grid-template-columns: 1fr;
+    }
+
+    .form-container button {
+        grid-column: span 1;
+    }
+
+    #movieList {
+        grid-template-columns: 1fr;
+    }
+
+    .movie-poster {
+        height: 350px;
+    }
+}
+.section-header {
+    margin-bottom: 15px;
+}
+
+.section-header h2 {
+    margin-bottom: 5px;
+}
+
+.section-header p {
+    color: #777;
+    font-size: 14px;
+}
+.review-modal {
+    display: none;
+
+    position: fixed;
+    z-index: 1000;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+.review-modal-content {
+    position: relative;
+
+    width: 100%;
+    max-width: 550px;
+    max-height: 80vh;
+
+    overflow-y: auto;
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 16px;
+
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.review-modal-content h2 {
+    margin-bottom: 25px;
+}
+
+.close-review {
+    position: absolute;
+
+    top: 15px;
+    right: 18px;
+
+    border: none;
+    background: none;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    color: #666;
+}
+
+.close-review:hover {
+    color: #222;
+}
+
+.review-item {
+    padding: 15px 0;
+
+    border-bottom: 1px solid #eee;
+}
+
+.review-item:last-child {
+    border-bottom: none;
+}
+
+.review-item h3 {
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.review-rating {
+    margin-bottom: 6px;
+}
+
+.review-comment {
+    color: #666;
+    line-height: 1.5;
+}
+/* Add Review Form */
+
+#addReviewModal .review-modal-content {
+    max-width: 500px;
+}
+
+#addReviewModal h2 {
+    margin-bottom: 20px;
+}
+
+#addReviewModal input,
+#addReviewModal textarea {
+    width: 100%;
+    padding: 13px 15px;
+    margin-bottom: 14px;
+
+    border: 1px solid #ddd;
+    border-radius: 9px;
+
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    background: #fafafa;
+}
+
+#addReviewModal input:focus,
+#addReviewModal textarea:focus {
+    outline: none;
+    border-color: #777;
+    background: white;
+}
+
+#addReviewModal textarea {
+    resize: vertical;
+}
+
+.submit-review {
+    width: 100%;
+    padding: 13px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: #222;
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.submit-review:hover {
+    background: #444;
+}
+
+.no-reviews {
+    color: #777;
+    text-align: center;
+    padding: 20px 0;
+}
